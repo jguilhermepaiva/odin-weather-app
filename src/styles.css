@@ -1,0 +1,262 @@
+/* Reset básico e configurações globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+    transition: background-color 0.5s ease; /* Transição suave para o body */
+}
+
+body.warm{
+    background-color:rgb(252, 221, 221); 
+}
+
+body.cold {
+    background-color: rgb(240, 248, 255); /* Azul claro */
+}
+/* Estilos base para o container do app */
+.app-container {
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+    transition: background 0.5s ease; /* Transição suave para o degradê */
+}
+
+/* --- TEMA FRIO (AZULADO) --- */
+/* O .app-container.cold terá o degradê que você definiu */
+.app-container.cold {
+    background: linear-gradient(135deg, #f0f8ff 0%, rgb(116, 175, 238) 100%);
+}
+/* Estilos padrão (que também servem para o tema frio) */
+.app-container header h1, .app-container.cold header h1 {
+    color: #003366;
+    margin-bottom: 25px;
+    font-size: 2.2em;
+    font-weight: 600;
+}
+
+.app-container .search-container, .app-container.cold .search-container { /* Adicionado .app-container para especificidade */
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.app-container #city-input, .app-container.cold #city-input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #b0c4de;
+    border-radius: 8px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-container #city-input:focus, .app-container.cold #city-input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+.app-container #search-btn, .app-container.cold #search-btn,
+.app-container #change-btn, .app-container.cold #change-btn {
+    padding: 12px 20px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 500;
+}
+
+.app-container #search-btn:hover, .app-container.cold #search-btn:hover,
+.app-container #change-btn:hover, .app-container.cold #change-btn:hover {
+    background-color: #357abd;
+    transform: translateY(-1px);
+}
+
+.flex-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.app-container .weather-info-container, .app-container.cold .weather-info-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+    border: 1px solid #d0e0f0;
+}
+
+.app-container #city-name, .app-container.cold #city-name {
+    color: #004080;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.app-container #current-temp, .app-container.cold #current-temp {
+    font-size: 3.5em;
+    font-weight: bold;
+    color: #0059b3;
+    margin: 5px 0;
+}
+
+.app-container #current-condition, .app-container.cold #current-condition {
+    font-size: 1.2em;
+    color: #335c81;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+
+.app-container .temp-range, .app-container.cold .temp-range {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.1em;
+    color: #204060;
+}
+
+.app-container .controls-container, .app-container.cold .controls-container {
+    margin-top: 25px;
+}
+
+/* Ajustes para o botão de toggle no tema frio (caso precise de alguma especificidade) */
+.app-container.cold #change-btn {
+    background-color: #5dade2; /* Um azul um pouco diferente */
+}
+.app-container.cold #change-btn:hover {
+    background-color: #4a90e2;
+}
+
+/* --- TEMA QUENTE (AVERMELHADO) --- */
+.app-container.warm {
+    background: linear-gradient(135deg, rgb(255, 240, 240) 0%, rgb(238, 116, 116) 100%);
+}
+
+.app-container.warm header h1 {
+    color: #b22222; /* Vermelho escuro (firebrick) */
+}
+
+.app-container.warm #city-input {
+    border-color: #f5c6cb; /* Rosa claro para borda */
+}
+
+.app-container.warm #city-input:focus {
+    border-color: #ee7474; /* Vermelho do seu degradê */
+    box-shadow: 0 0 0 3px rgba(238, 116, 116, 0.3);
+}
+
+.app-container.warm #search-btn,
+.app-container.warm #change-btn {
+    background-color: #e74c3c; /* Vermelho mais vibrante */
+    color: white;
+}
+
+.app-container.warm #search-btn:hover,
+.app-container.warm #change-btn:hover {
+    background-color: #c0392b; /* Vermelho mais escuro no hover */
+}
+
+.app-container.warm .weather-info-container {
+    background-color: rgba(255, 235, 230, 0.8); /* Fundo branco com leve tom rosado */
+    border-color: #f5c6cb; /* Rosa claro */
+}
+
+.app-container.warm #city-name {
+    color: #c0392b; /* Vermelho escuro */
+}
+
+.app-container.warm #current-temp {
+    font-size: 3.5em; /* Mantém o tamanho, muda a cor */
+    font-weight: bold;
+    color: #d9534f; /* Vermelho */
+    margin: 5px 0;
+}
+
+.app-container.warm #current-condition {
+    color: #a94442; /* Vermelho mais suave */
+    text-transform: capitalize;
+}
+
+.app-container.warm .temp-range {
+    color: #a94442; /* Vermelho mais suave */
+}
+
+.app-container.warm .controls-container {
+    margin-top: 25px;
+}
+
+
+/* Rodapé (geralmente fora do .app-container, então pode não ser afetado diretamente pelas classes .warm/.cold) */
+footer {
+    margin-top: 30px;
+    color: #507090;
+    font-size: 0.9em;
+    text-align: center; /* Adicionado para garantir centralização do texto */
+}
+/* Se o footer estiver DENTRO do .app-container, você pode adicionar: */
+/*
+.app-container.warm footer p {
+    color: #a06060;
+}
+.app-container.cold footer p {
+    color: #507090;
+}
+*/
+
+
+/* Botão desabilitado (genérico para ambos os temas, se necessário) */
+.app-container #change-btn:disabled {
+    background-color: #cccccc;
+    border-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* Ajustes para telas menores (mantidos) */
+@media (max-width: 600px) {
+    .app-container {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    header h1, .app-container.cold header h1, .app-container.warm header h1 {
+        font-size: 1.8em;
+    }
+
+    .app-container .search-container, .app-container.cold .search-container, .app-container.warm .search-container {
+        flex-direction: column;
+    }
+
+    .app-container #city-input, .app-container.cold #city-input, .app-container.warm #city-input,
+    .app-container #search-btn, .app-container.cold #search-btn, .app-container.warm #search-btn,
+    .app-container #change-btn, .app-container.cold #change-btn, .app-container.warm #change-btn {
+        width: 100%;
+    }
+
+    .app-container #current-temp, .app-container.cold #current-temp, .app-container.warm #current-temp {
+        font-size: 2.8em;
+    }
+
+    .app-container #city-name, .app-container.cold #city-name, .app-container.warm #city-name {
+        font-size: 1.5em;
+    }
+}
